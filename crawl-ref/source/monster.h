@@ -308,8 +308,10 @@ public:
     bool can_go_intox() const;
     bool can_go_berserk() const;
     bool can_jump() const;
+    void go_intox(bool intentional, bool potion = false);
     void go_berserk(bool intentional, bool potion = false);
     bool go_frenzy(actor *source);
+    bool intox() const;
     bool berserk() const;
     bool berserk_or_insane() const;
     bool has_lifeforce() const;
