@@ -1366,7 +1366,7 @@ void no_ability_msg()
 
 bool activate_ability()
 {
-    if (you.berserk())
+    if (you.intox())
     {
         canned_msg(MSG_TOO_INTOX);
         crawl_state.zero_turns_taken();

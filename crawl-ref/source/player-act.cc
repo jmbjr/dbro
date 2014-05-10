@@ -739,7 +739,7 @@ bool player::can_go_intox() const
     return can_go_intox(false);
 }
 
-bool player::can_go_berserk(bool intentional, bool potion, bool quiet) const
+bool player::can_go_intox(bool intentional, bool potion, bool quiet) const
 {
     const bool verbose = (intentional || potion) && !quiet;
 
