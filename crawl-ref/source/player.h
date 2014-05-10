@@ -568,6 +568,8 @@ public:
     bool can_jump(bool quiet) const;
     void go_berserk(bool intentional, bool potion = false);
     bool berserk() const;
+    void go_intox(bool intentional, bool potion = false);
+    bool intox() const;
     bool has_lifeforce() const;
     bool can_mutate() const;
     bool can_safely_mutate() const;
