@@ -5543,7 +5543,7 @@ bool monster::can_drink_potion(potion_type ptype) const
             return mons_species() == MONS_VAMPIRE;
         case POT_BERSERK_RAGE:
             return can_go_berserk();
-        case POT_CONFUSE:
+        case POT_CONFUSION:
             return can_go_intox();
         case POT_HASTE:
         case POT_MIGHT:
