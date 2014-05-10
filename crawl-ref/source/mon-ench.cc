@@ -2186,7 +2186,7 @@ static inline int _mod_speed(int val, int speed)
 
 static const char *enchant_names[] =
 {
-    "none", "berserk", "haste", "might", "fatigue", "slow", "fear",
+    "none", "intox", "berserk", "haste", "might", "fatigue", "slow", "fear",
     "confusion", "invis", "poison", "rot", "summon", "abj", "corona",
     "charm", "sticky_flame", "glowing_shapeshifter", "shapeshifter", "tp",
     "sleep_wary", "submerged", "short_lived", "paralysis", "sick",
