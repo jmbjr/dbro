@@ -3045,6 +3045,19 @@ bool monster::go_frenzy(actor *source)
     return true;
 }
 
+void monster::go_intox(bool intentional, bool /* potion */)
+{
+    if (!can_go_intox())
+        return;
+
+    del_ench(ENCH_FEAR, true); // Getting drunk breaks fear.
+    behaviour = BEH_SEEK;      // Not sure how this interacts with confuse
+
+    if (simple_monster_message(this, " is intoxicated!"))
+        // Xom likes monsters getting drunk
+        xom_is_stimulated(friendly() ? 25 : 100);
+}
+
 void monster::go_berserk(bool intentional, bool /* potion */)
 {
     if (!can_go_berserk())
@@ -4900,6 +4913,11 @@ bool monster::can_go_berserk() const
     return (holiness() == MH_NATURAL) && can_go_frenzy();
 }
 
+bool monster::can_go_intox() const
+{
+    return (holiness() == MH_NATURAL) && can_go_frenzy();
+}
+
 bool monster::can_jump() const
 {
     if (mons_intel(this) == I_PLANT)
@@ -4915,6 +4933,11 @@ bool monster::can_jump() const
         return false;
 
     return true;
+}
+
+bool monster::intox() const
+{
+    return has_ench(ENCH_INTOX);
 }
 
 bool monster::berserk() const
@@ -5520,6 +5543,8 @@ bool monster::can_drink_potion(potion_type ptype) const
             return mons_species() == MONS_VAMPIRE;
         case POT_BERSERK_RAGE:
             return can_go_berserk();
+        case POT_CONFUSE:
+            return can_go_intox();
         case POT_HASTE:
         case POT_MIGHT:
         case POT_AGILITY:

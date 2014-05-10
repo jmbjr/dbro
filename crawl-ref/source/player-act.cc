@@ -729,6 +729,72 @@ void player::attacking(actor *other, bool ranged)
         go_berserk(false);
 }
 
+void player::go_intox(bool intentional, bool potion)
+{
+    ::go_intox(intentional, potion);
+}
+
+bool player::can_go_intox() const
+{
+    return can_go_intox(false);
+}
+
+bool player::can_go_berserk(bool intentional, bool potion, bool quiet) const
+{
+    const bool verbose = (intentional || potion) && !quiet;
+
+    if (intox())
+    {
+        if (verbose)
+            mpr("You're already intoxicated!");
+        // or else you won't notice -- no message here.
+        return false;
+    }
+
+    if (duration[DUR_EXHAUSTED])
+    {
+        if (verbose)
+            mpr("You're too exhausted to go intoxicated.");
+        // or else they won't notice -- no message here
+        return false;
+    }
+
+    if (duration[DUR_DEATHS_DOOR])
+    {
+        if (verbose)
+            mpr("Your body is effectively dead; this is no time for a drink.");
+        return false;
+    }
+
+#if TAG_MAJOR_VERSION == 34
+    if (you.species == SP_DJINNI)
+    {
+        if (verbose)
+            mpr("Only creatures of flesh and blood can become intoxicated.");
+
+        return false;
+    }
+
+#endif
+    if (is_lifeless_undead())
+    {
+        if (verbose)
+            mpr("Your lifeless body prevents intoxication.");
+
+        return false;
+    }
+
+    if (!intentional && !potion && clarity())
+    {
+        if (verbose)
+            mpr("You're too calm and focused to intoxicate.");
+        return false;
+    }
+
+    return true;
+}
+
+
 void player::go_berserk(bool intentional, bool potion)
 {
     ::go_berserk(intentional, potion);

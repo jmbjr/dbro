@@ -1296,6 +1296,29 @@ string weird_sound()
     return getMiscString("sound_name");
 }
 
+bool go_intox(bool intentional, bool potion)
+{
+    if (!you.can_go_intox(intentional, potion))
+        return false;
+
+    //TODO 
+    //if (crawl_state.game_is_hints())
+    //Hints.hints_intox_counter++;
+
+    mpr("Your mind becomes a haze as the intoxication takes hold!");
+
+    //TODO which gods should take issue with intox?
+
+    int intox_duration = (20 + random2avg(19,2)) / 2;
+
+    you.increase_duration(DUR_INTOX, intox_duration);
+
+    //TODO handle stat change. halve the dex and int and add it to str
+
+    return true;
+}
+
+
 /**
  * Make the player go berserk!
  * @param intentional If true, this was initiated by the player, and additional

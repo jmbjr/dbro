@@ -1585,6 +1585,7 @@ enum duration_type
     DUR_AGILITY,
     DUR_FLIGHT,
     DUR_BERSERK,
+    DUR_INTOX, //SAVE COMPAT?
     DUR_POISONING,
 
     DUR_CONFUSING_TOUCH,
@@ -1736,6 +1737,7 @@ enum duration_type
 enum enchant_type
 {
     ENCH_NONE = 0,
+    ENCH_INTOX,          //TODO Probably not in best spot here
     ENCH_BERSERK,
     ENCH_HASTE,
     ENCH_MIGHT,

@@ -165,6 +165,12 @@ void monster::add_enchantment_effect(const mon_enchant &ench, bool quiet)
     // Check for slow/haste.
     switch (ench.ench)
     {
+    case ENCH_INTOX:
+        //TODO bump str based on int & dex
+        //TODO damage shaving + no fear
+        calc_speed();
+        break;
+
     case ENCH_BERSERK:
         // Inflate hp.
         scale_hp(3, 2);
