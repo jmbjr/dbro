@@ -180,7 +180,7 @@ public:
     virtual reach_type reach_range() const = 0;
     virtual bool can_jump() const = 0;
     virtual bool can_go_intox() const = 0;
-    virtual bool go_intox(bool intentional, bool potion = false) = 0;
+    virtual void go_intox(bool intentional, bool potion = false) = 0;
     virtual bool intox() const = 0;
 
 
