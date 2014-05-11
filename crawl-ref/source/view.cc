@@ -710,7 +710,8 @@ int viewmap_flash_colour()
         return LIGHTGREY;
     else if (you.berserk())
         return RED;
-
+    else if (you.intox())
+        return YELLOW;
     return BLACK;
 }
 
