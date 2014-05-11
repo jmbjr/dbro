@@ -63,6 +63,8 @@ static duration_def duration_data[] =
       BLUE, "RoF", "immune to fire clouds", "" },
     { DUR_ICY_ARMOUR, true,
       0, "", "icy armour", "You are protected by a layer of icy armour." },
+    { DUR_INTOX, true, 
+      BROWN, "Intox", "intoxicated", "You are intoxicated."}, 
     { DUR_LIQUID_FLAMES, false,
       RED, "Fire", "liquid flames", "You are covered in liquid flames." },
     { DUR_LOWERED_MR, false,
