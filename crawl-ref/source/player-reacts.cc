@@ -775,6 +775,23 @@ static void _decrement_durations()
         && (_decrement_a_duration(DUR_INTOX, delay,"You feel sober.",
                                   0, NULL, MSGCH_RECOVERY))  )
     {
+        //undo stat changes
+        int dur = 12 + roll_dice(2, 12);
+        // For consistency with slow give exhaustion 2 times the nominal
+        // duration.
+        you.increase_duration(DUR_EXHAUSTED, dur * 2);
+
+        //TODO add hints
+        // Don't trigger too many hints mode messages.
+        // const bool hints_slow = Hints.hints_events[HINT_YOU_ENCHANTED];
+        // Hints.hints_events[HINT_YOU_ENCHANTED] = false;
+
+        slow_player(dur);
+        //use BERSERK_NUTRITION for now
+        make_hungry(BERSERK_NUTRITION, true);
+        you.hunger = max(HUNGER_STARVING - 100, you.hunger);
+
+    {
         
 
     if (you.duration[DUR_BERSERK]
