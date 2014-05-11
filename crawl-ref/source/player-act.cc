@@ -952,6 +952,11 @@ bool player::berserk() const
     return duration[DUR_BERSERK];
 }
 
+bool player::intox() const
+{
+    return duration[DUR_INTOX];
+}
+
 bool player::can_cling_to_walls() const
 {
     return false;
