@@ -739,6 +739,7 @@ static void _decrement_durations()
                           "You can drink potions again.",
                           0, NULL, MSGCH_RECOVERY);
 
+    dec_intox_player(delay);
     dec_slow_player(delay);
     dec_exhaust_player(delay);
     dec_haste_player(delay);
