@@ -323,7 +323,6 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
             if (go_intox(was_known, true))
                 xom_is_stimulated(50);
         }
-        break;
 
         if (confuse_player((3 + random2(8))))
             xom_is_stimulated(100 / xom_factor);
