@@ -1305,7 +1305,7 @@ bool go_intox(bool intentional, bool potion)
     //if (crawl_state.game_is_hints())
     //Hints.hints_intox_counter++;
 
-    mpr("Your mind becomes a haze as the intoxication takes hold!");
+    mpr("Your mind becomes a haze as the intoxication sets in!");
 
     //TODO which gods should take issue with intox?
 
