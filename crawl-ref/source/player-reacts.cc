@@ -791,7 +791,7 @@ static void _decrement_durations()
         make_hungry(BERSERK_NUTRITION, true);
         you.hunger = max(HUNGER_STARVING - 100, you.hunger);
 
-    {
+    }
         
 
     if (you.duration[DUR_BERSERK]
