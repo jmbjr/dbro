@@ -745,6 +745,7 @@ static const char* dur_names[] =
     "agility",
     "flight",
     "berserker",
+    "intox",
     "poisoning",
     "confusing touch",
     "sure blade",
