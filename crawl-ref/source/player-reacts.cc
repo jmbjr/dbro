@@ -771,6 +771,12 @@ static void _decrement_durations()
         notify_stat_change(STAT_INT, -5, true, "brilliance running out");
     }
 
+    if (you.duration[DUR_INTOX]
+        && (_decrement_a_duration(DUR_INTOX, delay,"You feel sober.",
+                                  0, NULL, MSGCH_RECOVERY))  )
+    {
+        
+
     if (you.duration[DUR_BERSERK]
         && (_decrement_a_duration(DUR_BERSERK, delay)
             || you.hunger + 100 <= HUNGER_STARVING + BERSERK_NUTRITION))
