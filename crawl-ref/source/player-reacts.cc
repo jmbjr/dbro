@@ -765,7 +765,7 @@ static void _decrement_durations()
     }
 
     if (_decrement_a_duration(DUR_DAMAGE_SHAVING, delay,
-                              "You no longer feel very invincible anymore.");
+                              "You no longer feel very invincible anymore."))
 
 
     if (you.duration[DUR_BERSERK]
