@@ -52,7 +52,7 @@ static duration_def duration_data[] =
     { DUR_CORONA, false,
       YELLOW, "Corona", "", "" },
     { DUR_DAMANGE_SHAVING, false,
-      RED, "DmgShv", "damage shaving", "You can ignore some damage." },
+      BLUE, "DmgShv", "damage shaving", "You can ignore some damage." },
     { DUR_DEATH_CHANNEL, true,
       MAGENTA, "DChan", "death channel", "You are channeling the dead." },
     { DUR_DIVINE_STAMINA, true,
