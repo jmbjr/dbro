@@ -51,7 +51,7 @@ static duration_def duration_data[] =
       MAGENTA, "cTele", "controlling teleports", "You can control teleportations." },
     { DUR_CORONA, false,
       YELLOW, "Corona", "", "" },
-    { DUR_DAMANGE_SHAVING, false,
+    { DUR_DAMAGE_SHAVING, false,
       BLUE, "DmgShv", "damage shaving", "You can ignore some damage." },
     { DUR_DEATH_CHANNEL, true,
       MAGENTA, "DChan", "death channel", "You are channeling the dead." },
