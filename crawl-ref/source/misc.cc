@@ -1305,6 +1305,7 @@ bool go_damage_shaving()
     int damage_shaving_duration = (20 + random2avg(19,2)) / 2;
 
     you.increase_duration(DUR_DAMAGE_SHAVING, damage_shaving_duration);
+    return true;
 }
 
 /**
