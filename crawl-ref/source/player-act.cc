@@ -729,7 +729,24 @@ void player::go_damage_shaving()
 
 bool player::can_go_damage_shaving() const
 {
-    return can_go_damage_shaving(false);
+#if TAG_MAJOR_VERSION == 34
+    if (you.species == SP_DJINNI)
+    {
+        if (verbose)
+            mpr("Only creatures of flesh and blood can shave damage.");
+
+        return false;
+    }
+
+#endif
+    if (is_lifeless_undead())
+    {
+        if (verbose)
+            mpr("Your lifeless body prevents damage shaving.");
+
+        return false;
+    }
+    return true;
 }
 
 bool player::damage_shaving() const
