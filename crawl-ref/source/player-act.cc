@@ -732,7 +732,7 @@ bool player::can_go_damage_shaving() const
     return can_go_damage_shaving(false);
 }
 
-bool player::damage_shaving()
+bool player::damage_shaving() const
 {
     return duration[DUR_DAMAGE_SHAVING];
 }
