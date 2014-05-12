@@ -6401,12 +6401,12 @@ void monster::go_damage_shaving()
     add_ench(ENCH_DAMAGE_SHAVING);
 } 
 
-bool monster::damage_shaving()
+bool monster::damage_shaving() const
 {
     return has_ench(ENCH_DAMAGE_SHAVING);
 }
 
-bool monster::can_go_damage_shaving()
+bool monster::can_go_damage_shaving() const
 {
     return (holiness() == MH_NATURAL);
 }
