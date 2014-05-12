@@ -722,6 +722,22 @@ void player::attacking(actor *other, bool ranged)
         go_berserk(false);
 }
 
+void player::go_damage_shaving()
+{
+    ::go_damage_shaving();
+}
+
+bool player::can_go_damage_shaving() const
+{
+    return can_go_damage_shaving(false);
+}
+
+bool player::damage_shaving()
+{
+    return duration[DUR_DAMAGE_SHAVING];
+}
+
+
 void player::go_berserk(bool intentional, bool potion)
 {
     ::go_berserk(intentional, potion);

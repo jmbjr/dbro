@@ -764,6 +764,10 @@ static void _decrement_durations()
         notify_stat_change(STAT_INT, -5, true, "brilliance running out");
     }
 
+    if (_decrement_a_duration(DUR_DAMAGE_SHAVING, delay,
+                              "You no longer feel very invincible anymore.");
+
+
     if (you.duration[DUR_BERSERK]
         && (_decrement_a_duration(DUR_BERSERK, delay)
             || you.hunger + 100 <= HUNGER_STARVING + BERSERK_NUTRITION))

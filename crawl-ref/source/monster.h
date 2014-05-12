@@ -509,6 +509,11 @@ public:
     void align_avatars(bool force_friendly = false);
     void remove_avatars();
 
+    
+    bool damage_shaving() const;
+    bool can_go_damage_shaving() const;
+    void go_damage_shaving();
+
 private:
     void init_with(const monster& mons);
     void swap_slots(mon_inv_type a, mon_inv_type b);

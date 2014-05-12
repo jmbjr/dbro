@@ -1723,6 +1723,7 @@ enum duration_type
     DUR_QAZLAL_COLD_RES,
     DUR_QAZLAL_ELEC_RES,
     DUR_QAZLAL_AC,
+    DUR_DAMAGE_SHAVING,
     NUM_DURATIONS
 };
 
@@ -1854,6 +1855,7 @@ enum enchant_type
     ENCH_PHANTOM_MIRROR,
     ENCH_BRIBED,
     ENCH_PERMA_BRIBED,
+    ENCH_DAMAGE_SHAVING,
     // Update enchantment names in mon-ench.cc when adding or removing
     // enchantments.
     NUM_ENCHANTMENTS

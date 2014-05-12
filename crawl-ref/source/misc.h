@@ -18,6 +18,7 @@ class dist;
 struct activity_interrupt_data;
 
 bool go_berserk(bool intentional, bool potion = false);
+bool go_damage_shaving();
 void search_around();
 
 void emergency_untransform();

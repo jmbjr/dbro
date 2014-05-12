@@ -2232,7 +2232,7 @@ static const char *enchant_names[] =
     "poison_vuln", "icemail", "agile",
     "frozen", "ephemeral_infusion", "black_mark", "grand_avatar",
     "sap magic", "shroud", "phantom_mirror", "bribed", "permabribed",
-    "buggy",
+    "damage_shaving", "buggy",
 };
 
 static const char *_mons_enchantment_name(enchant_type ench)
@@ -2506,6 +2506,8 @@ int mon_enchant::calc_duration(const monster* mons,
     case ENCH_PERMA_BRIBED:
         cturn = 10000 / _mod_speed(25, mons->speed);
         break;
+    case ENCH_DAMAGE_SHAVING:
+        cturn = max(100 / modded_speed(mons, 5), 3); //same as confuse for now 
     default:
         break;
     }

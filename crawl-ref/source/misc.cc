@@ -1295,6 +1295,18 @@ string weird_sound()
     return getMiscString("sound_name");
 }
 
+bool go_damage_shaving()
+{
+    if (!you.can_go_damage_shaving())
+        return false;
+
+    //what blocks damage shaving?
+    mpr ("You feel nearly invincible!");
+    int damage_shaving_duration = (20 + random2avg(19,2)) / 2;
+
+    you.increase_duration(DUR_DAMAGE_SHAVING, damage_shaving_duration);
+}
+
 /**
  * Make the player go berserk!
  * @param intentional If true, this was initiated by the player, and additional

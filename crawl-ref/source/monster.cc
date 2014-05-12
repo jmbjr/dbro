@@ -6392,3 +6392,22 @@ void monster::remove_avatars()
     else
         this->del_ench(ENCH_GRAND_AVATAR);
 }
+
+void monster::go_damage_shaving()
+{
+    if (!can_go_damage_shaving())
+        return;
+
+    add_ench(ENCH_DAMAGE_SHAVING);
+} 
+
+bool monster::damage_shaving()
+{
+    return has_ench(ENCH_DAMAGE_SHAVING);
+}
+
+bool monster::can_go_damage_shaving()
+{
+    return (holiness() == MH_NATURAL);
+}
+
