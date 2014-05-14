@@ -80,6 +80,7 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
             && potion && was_known
             && you.duration[DUR_CONF] == 0
             && you.duration[DUR_POISONING] == 0
+            && you.duration[DUR_INTOX] == 0
             && you.rotting == 0
             && you.disease == 0)
         {
