@@ -771,22 +771,22 @@ static void _decrement_durations()
         notify_stat_change(STAT_INT, -5, true, "brilliance running out");
     }
 
-    if (you.duration[DUR_INTOX]
-        && (_decrement_a_duration(DUR_INTOX, delay,"You feel sober.",
-                                  0, NULL, MSGCH_RECOVERY))  )
+    if (you.duration[DUR_INTOX] && (_decrement_a_duration(DUR_INTOX, delay)
     {
-        //undo stat changes
+        mpr("You feel sober");
+        you.duration[DUR_INTOX] = 0;
+        you.duration[DUR_CONF] = 0;
+        you.duration[DUR_FORTITUDE] = 0;
+
         int dur = 12 + roll_dice(2, 12);
-        // For consistency with slow give exhaustion 2 times the nominal
-        // duration.
         you.increase_duration(DUR_EXHAUSTED, dur * 2);
+        you.increase_duration(DUR_RETCHING, dur);
 
         //TODO add hints
         // Don't trigger too many hints mode messages.
         // const bool hints_slow = Hints.hints_events[HINT_YOU_ENCHANTED];
         // Hints.hints_events[HINT_YOU_ENCHANTED] = false;
 
-        slow_player(dur);
         //use BERSERK_NUTRITION for now
         make_hungry(BERSERK_NUTRITION, true);
         you.hunger = max(HUNGER_STARVING - 100, you.hunger);
