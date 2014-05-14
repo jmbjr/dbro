@@ -5443,18 +5443,6 @@ bool slow_player(int turns)
     return true;
 }
 
-void dec_intox_player(int delay)
-{
-    if (!you.duration[DUR_INTOX])
-        return;
-
-    if (you.duration[DUR_INTOX] <= BASELINE_DELAY)
-    {
-        mprf(MSGCH_DURATION, "You start to feel more sober.");
-        you.duration[DUR_INTOX] = 0;
-    }
-}
-
 void dec_slow_player(int delay)
 {
     if (!you.duration[DUR_SLOW])
