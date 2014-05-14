@@ -70,6 +70,7 @@
 #include "skills.h"
 #include "skills2.h"
 #include "spl-clouds.h"
+#include "spl-damage.h"
 #include "state.h"
 #include "stuff.h"
 #include "target.h"
