@@ -4410,7 +4410,9 @@ int slaying_bonus(weapon_property_type which_affected, bool ranged)
 
     if (you.duration[DUR_SONG_OF_SLAYING])
         ret += you.props["song_of_slaying_bonus"].get_int();
-
+    
+    if (you.duration[DUR_INTOX])
+        ret += 10;
     return ret;
 }
 
