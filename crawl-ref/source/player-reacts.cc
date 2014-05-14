@@ -770,7 +770,7 @@ static void _decrement_durations()
         notify_stat_change(STAT_INT, -5, true, "brilliance running out");
     }
 
-    if (you.duration[DUR_INTOX] && (_decrement_a_duration(DUR_INTOX, delay)
+    if (you.duration[DUR_INTOX] && (_decrement_a_duration(DUR_INTOX, delay)))
     {
         mpr("You feel sober");
         you.duration[DUR_INTOX] = 0;
