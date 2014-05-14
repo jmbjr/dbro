@@ -1312,6 +1312,8 @@ bool go_intox(bool intentional, bool potion)
     int intox_duration = (20 + random2avg(19,2)) / 2;
 
     you.increase_duration(DUR_INTOX, intox_duration);
+    confuse_player(intox_duration);
+    you.increase_duration(DUR_FORTITUDE, intox_duration);
 
     //TODO handle stat change. halve the dex and int and add it to str
 

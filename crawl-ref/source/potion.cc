@@ -318,14 +318,12 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
             mpr("You feel slightly irritated.");
             make_hungry(100, false);
         }
-        else
-        {
-            if (go_intox(was_known, true))
-                xom_is_stimulated(50);
-        }
+        //go_intox already checks for clarity.
 
-        if (confuse_player((3 + random2(8))))
+        if (go_intox(was_known, true))
+        {
             xom_is_stimulated(100 / xom_factor);
+        }
         break;
 
     case POT_INVISIBILITY:
