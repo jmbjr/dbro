@@ -112,7 +112,8 @@ melee_attack::melee_attack(actor *attk, actor *defn,
     if (weapon && !using_weapon())
         wpn_skill = SK_FIGHTING;
 
-    can_cleave = !jumping_attack && wpn_skill == SK_AXES && attacker != defender
+    can_cleave = !jumping_attack && (wpn_skill == SK_AXES || 
+        you.duration[DUR_INTOX]) && attacker != defender 
         && !attacker->confused();
 
     if (jumping_attack)
@@ -676,7 +677,8 @@ bool melee_attack::handle_phase_end()
 {
     if (!cleave_targets.empty())
     {
-        attack_cleave_targets(attacker, cleave_targets, attack_number,
+        if (!you.duration[DUR_INTOX] || (you.duration[DUR_INTOX] && coinflip()))
+            attack_cleave_targets(attacker, cleave_targets, attack_number,
                               effective_attack_number);
     }
 
@@ -3780,9 +3782,9 @@ void melee_attack::cleave_setup()
     bool behind = coinflip();
     get_cleave_targets(attacker, defender->pos(), dir, cleave_targets, behind);
     cleave_targets.reverse();
-    attack_cleave_targets(attacker, cleave_targets, attack_number,
+    if (!you.duration[DUR_INTOX] || (you.duration[DUR_INTOX] && coinflip()))
+        attack_cleave_targets(attacker, cleave_targets, attack_number,
                           effective_attack_number);
-
     // We need to get the list of the remaining potential targets now because
     // if the main target dies, its position will be lost.
     get_cleave_targets(attacker, defender->pos(), -dir, cleave_targets, !behind);
