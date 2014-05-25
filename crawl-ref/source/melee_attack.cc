@@ -114,7 +114,7 @@ melee_attack::melee_attack(actor *attk, actor *defn,
 
     can_cleave = !jumping_attack && (wpn_skill == SK_AXES || 
         you.duration[DUR_INTOX]) && attacker != defender &&
-        (!attacker->confused() && !you.duration[DUR_INTOX]);
+        (!attacker->confused() || you.duration[DUR_INTOX]);
 
     if (jumping_attack)
         attack_position = attack_pos;
