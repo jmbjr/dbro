@@ -691,7 +691,7 @@ void attack_cleave_targets(actor* attacker, list<actor*> &targets,
     {
         actor* def = targets.front();
         if (attacker->alive() && def && def->alive()
-            && !_dont_harm(attacker, def))
+            && (!_dont_harm(attacker, def) || you.duration[DUR_INTOX]))
         {
             melee_attack attck(attacker, def, attack_number,
                                ++effective_attack_number, true);
