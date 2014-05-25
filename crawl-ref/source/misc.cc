@@ -1315,7 +1315,6 @@ bool go_intox(bool intentional, bool potion)
     you.increase_duration(DUR_INTOX, intox_duration);
     confuse_player(intox_duration);
     you.increase_duration(DUR_FORTITUDE, intox_duration);
-    cast_song_of_slaying(intox_duration, false);
 
     //TODO handle stat change. halve the dex and int and add it to str
 

@@ -776,7 +776,6 @@ static void _decrement_durations()
         you.duration[DUR_INTOX] = 0;
         you.duration[DUR_CONF] = 0;
         you.duration[DUR_FORTITUDE] = 0;
-        you.duration[DUR_SONG_OF_SLAYING] = 0;
 
         int dur = 12 + roll_dice(2, 12);
         you.increase_duration(DUR_EXHAUSTED, dur * 2);

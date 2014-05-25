@@ -106,7 +106,6 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
         you.duration[DUR_CONF] = 0;
         if (you.duration[DUR_INTOX])
         {
-            you.duration[DUR_SONG_OF_SLAYING] = 0;
             you.duration[DUR_FORTITUDE] = 0;
             you.duration[DUR_INTOX] = 0;
         }
