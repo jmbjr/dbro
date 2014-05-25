@@ -779,7 +779,7 @@ static void _decrement_durations()
 
         int dur = 12 + roll_dice(2, 12);
         you.increase_duration(DUR_EXHAUSTED, dur * 2);
-        you.sicken(dur * 20);
+        you.sicken(dur * 2);
         //TODO add hints
         // Don't trigger too many hints mode messages.
         // const bool hints_slow = Hints.hints_events[HINT_YOU_ENCHANTED];
