@@ -4254,6 +4254,7 @@ void display_char_status()
         DUR_QAZLAL_ELEC_RES,
         DUR_QAZLAL_AC,
         DUR_CORROSION,
+        DUR_FORTITUDE,
     };
 
     status_info inf;

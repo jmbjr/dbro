@@ -742,6 +742,7 @@ static short _get_stat_colour(stat_type stat)
     if (you.duration[DUR_DIVINE_STAMINA]
         || stat == STAT_STR && you.duration[DUR_MIGHT]
         || stat == STAT_STR && you.duration[DUR_BERSERK]
+        || stat == STAT_STR && you.duration[DUR_FORTITUDE]
         || stat == STAT_INT && you.duration[DUR_BRILLIANCE]
         || stat == STAT_DEX && you.duration[DUR_AGILITY])
     {
@@ -1082,6 +1083,7 @@ static void _get_status_lights(vector<status_light>& out)
         DUR_QAZLAL_ELEC_RES,
         // DUR_QAZLAL_AC intentionally omitted - shows as AC bonus
         DUR_CORROSION,
+        DUR_FORTITUDE,
     };
 
     status_info inf;
@@ -2626,6 +2628,7 @@ static string _status_mut_abilities(int sw)
         DUR_QAZLAL_ELEC_RES,
         DUR_QAZLAL_AC,
         DUR_CORROSION,
+        DUR_FORTITUDE,
     };
 
     status_info inf;
