@@ -16,8 +16,7 @@ This card swaps your position with that of a nearby creature.
 %%%%
 Velocity card
 
-This card makes the slow fast and the fast slow. Whether or not you
-benefit from this exchange depends on power.
+This card makes you move or even act faster.
 %%%%
 # decks of emergency -> escape
 the Tomb card
@@ -43,9 +42,11 @@ Warpwright card
 This card creates a teleportation trap in an adjacent square, with a chance of
 its position being revealed at high power.
 %%%%
-the Shaft card
+Flight card
 
-This card creates a shaft beneath you.
+This card helps you run away by transforming you or granting flight and swift
+movement. At high power it will additionally create a shaft beneath you, and
+may even provide temporary invisibility.
 %%%%
 the Elixir card
 
@@ -135,18 +136,13 @@ Repulsiveness card
 
 This card summons an ugly or very ugly thing.
 %%%%
-the Illusion card
-
-This card summons an illusion of you. Its power will depend upon
-your own.
-%%%%
 Vitriol card
 
 This card unleashes a corrosive attack spell.
 %%%%
 Flame card
 
-This card creates flames around you.
+This card unleashes a fiery attack spell, which may be explosive.
 %%%%
 Frost card
 
@@ -156,13 +152,14 @@ Venom card
 
 This card unleashes a poisonous attack spell.
 %%%%
-the Storm card
+the Spark card
 
-This card unleashes a storm -- rain, wind and the occasional tornado.
+This card unleashes an electrical attack spell, which may affect a large area
+at high power.
 %%%%
-Fortitude card
+the Hammer card
 
-This card grants immense strength and the ability to ignore injury.
+This card unleashes a physical attack spell.
 %%%%
 Pain card
 
@@ -177,10 +174,6 @@ the Orb card
 
 This card unleashes a destructive orb of pure magic, sometimes even multiple
 ones.
-%%%%
-Degeneration card
-
-This card attempts to polymorph nearby enemies into weaker forms.
 %%%%
 Wrath card
 

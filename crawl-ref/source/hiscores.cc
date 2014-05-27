@@ -1614,7 +1614,6 @@ void scorefile_entry::init(time_t dt)
         DUR_QAZLAL_ELEC_RES,
         DUR_QAZLAL_AC,
         DUR_CORROSION,
-        DUR_FORTITUDE,
     };
 
     status_info inf;

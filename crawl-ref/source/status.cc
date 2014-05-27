@@ -180,8 +180,6 @@ static duration_def duration_data[] =
       LIGHTBLUE, "", "protected from physical damage", "Qazlal is protecting you from physical damage." },
     { DUR_CORROSION, false,
       RED, "Corr", "corroded equipment", "Your equipment is corroded." },
-    { DUR_FORTITUDE, false,
-      LIGHTBLUE, "Fort", "immense fortitude", "You have immense fortitude and shrug off injury." },
 };
 
 static int duration_index[NUM_DURATIONS];
@@ -650,9 +648,9 @@ bool fill_status_info(int status, status_info* inf)
             if (you.duration[DUR_ELIXIR_HEALTH] && you.duration[DUR_ELIXIR_MAGIC])
                 inf->light_colour = WHITE;
             else if (you.duration[DUR_ELIXIR_HEALTH])
-                inf->light_colour = LIGHTGREEN;
-            else
                 inf->light_colour = LIGHTBLUE;
+            else
+                inf->light_colour = LIGHTMAGENTA;
             inf->light_text   = "Elixir";
         }
         break;
