@@ -80,6 +80,7 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
             && potion && was_known
             && you.duration[DUR_CONF] == 0
             && you.duration[DUR_POISONING] == 0
+            && you.duration[DUR_INTOX] == 0
             && you.rotting == 0
             && you.disease == 0)
         {
@@ -103,6 +104,11 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
         you.rotting = 0;
         you.disease = 0;
         you.duration[DUR_CONF] = 0;
+        if (you.duration[DUR_INTOX])
+        {
+            you.duration[DUR_FORTITUDE] = 0;
+            you.duration[DUR_INTOX] = 0;
+        }
         break;
 
     case POT_HEAL_WOUNDS:
@@ -310,8 +316,20 @@ bool potion_effect(potion_type pot_eff, int pow, item_def *potion, bool was_know
         break;
 
     case POT_CONFUSION:
-        if (confuse_player(3 + random2(8)))
+        if (potion && was_known && !you.can_go_intox(true, potion, false))
+            return false;
+
+        if (you.species == SP_VAMPIRE && you.hunger_state <= HS_SATIATED)
+        {
+            mpr("You feel slightly irritated.");
+            make_hungry(100, false);
+        }
+        //go_intox already checks for clarity.
+
+        if (go_intox(was_known, true))
+        {
             xom_is_stimulated(100 / xom_factor);
+        }
         break;
 
     case POT_INVISIBILITY:

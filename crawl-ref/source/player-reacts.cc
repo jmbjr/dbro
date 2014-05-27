@@ -752,6 +752,13 @@ static void _decrement_durations()
         invalidate_agrid();
     }
 
+    if (_decrement_a_duration(DUR_FORTITUDE, delay,
+                              "Your fortitude fades away."))
+    {
+        notify_stat_change(STAT_STR, -10, true, "Fortitude card running out");
+    }
+
+
     if (_decrement_a_duration(DUR_MIGHT, delay,
                               "You feel a little less mighty now."))
     {
@@ -769,6 +776,28 @@ static void _decrement_durations()
     {
         notify_stat_change(STAT_INT, -5, true, "brilliance running out");
     }
+
+    if (you.duration[DUR_INTOX] && (_decrement_a_duration(DUR_INTOX, delay)))
+    {
+        mpr("You feel sober");
+        you.duration[DUR_INTOX] = 0;
+        you.duration[DUR_CONF] = 0;
+        you.duration[DUR_FORTITUDE] = 0;
+
+        int dur = 12 + roll_dice(2, 12);
+        you.increase_duration(DUR_EXHAUSTED, dur * 2);
+        you.sicken(dur * 2);
+        //TODO add hints
+        // Don't trigger too many hints mode messages.
+        // const bool hints_slow = Hints.hints_events[HINT_YOU_ENCHANTED];
+        // Hints.hints_events[HINT_YOU_ENCHANTED] = false;
+
+        //use BERSERK_NUTRITION for now
+        make_hungry(BERSERK_NUTRITION, true);
+        you.hunger = max(HUNGER_STARVING - 100, you.hunger);
+
+    }
+        
 
     if (you.duration[DUR_BERSERK]
         && (_decrement_a_duration(DUR_BERSERK, delay)

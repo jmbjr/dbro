@@ -745,6 +745,7 @@ static const char* dur_names[] =
     "agility",
     "flight",
     "berserker",
+    "intox",
     "poisoning",
     "confusing touch",
     "sure blade",
@@ -883,6 +884,7 @@ static const char* dur_names[] =
     "qazlal elec resistance",
     "qazlal ac",
     "corrosion"
+    "fortitude card"
 };
 
 void wizard_edit_durations(void)

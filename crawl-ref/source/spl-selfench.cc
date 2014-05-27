@@ -342,7 +342,7 @@ spret_type cast_song_of_slaying(int pow, bool fail)
         mpr("You start a new song!");
     else
         mpr("You start singing a song of slaying.");
-
+    
     you.set_duration(DUR_SONG_OF_SLAYING, 20 + random2avg(pow, 2));
 
     you.props["song_of_slaying_bonus"] = 0;

@@ -44,8 +44,10 @@ enum card_flags_type
 
 enum card_type
 {
+#if TAG_MAJOR_VERSION == 34
     CARD_PORTAL,                // "the mover"
     CARD_WARP,                  // "the jumper"
+#endif
     CARD_SWAP,                  // "swap"
     CARD_VELOCITY,              // "the runner"
 
@@ -54,14 +56,14 @@ enum card_type
     CARD_DAMNATION,             // banishment
     CARD_SOLITUDE,              // dispersal
     CARD_WARPWRIGHT,            // create teleport trap
-    CARD_FLIGHT,
+    CARD_SHAFT,
 
     CARD_VITRIOL,               // acid damage
     CARD_FLAME,                 // fire damage
     CARD_FROST,                 // cold damage
     CARD_VENOM,                 // poison damage
-    CARD_HAMMER,                // pure damage
-    CARD_SPARK,                 // lightning damage
+    CARD_FORTITUDE,             // strength and damage shaving
+    CARD_STORM,
     CARD_PAIN,                  // single target, like spell of agony
     CARD_TORMENT,               // Symbol of Torment
     CARD_ORB,
@@ -117,6 +119,8 @@ enum card_type
     CARD_FAMINE,
     CARD_CURSE,                 // Curse your items
     CARD_SWINE,                 // *oink*
+    CARD_ILLUSION,
+    CARD_DEGEN,
 
     NUM_CARDS
 };

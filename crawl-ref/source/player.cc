@@ -3921,6 +3921,7 @@ int get_expiration_threshold(duration_type dur)
     case DUR_INVIS:
     case DUR_HASTE:
     case DUR_BERSERK:
+    case DUR_INTOX:
     case DUR_ICY_ARMOUR:
     case DUR_CONDENSATION_SHIELD:
     case DUR_PHASE_SHIFT:
@@ -4205,6 +4206,7 @@ void display_char_status()
         DUR_DIVINE_VIGOUR,
         DUR_DIVINE_STAMINA,
         DUR_BERSERK,
+        DUR_INTOX,
         STATUS_AIRBORNE,
         STATUS_NET,
         DUR_POISONING,
@@ -4252,6 +4254,7 @@ void display_char_status()
         DUR_QAZLAL_ELEC_RES,
         DUR_QAZLAL_AC,
         DUR_CORROSION,
+        DUR_FORTITUDE,
     };
 
     status_info inf;
@@ -4408,7 +4411,9 @@ int slaying_bonus(weapon_property_type which_affected, bool ranged)
 
     if (you.duration[DUR_SONG_OF_SLAYING])
         ret += you.props["song_of_slaying_bonus"].get_int();
-
+    
+    if (you.duration[DUR_INTOX])
+        ret += 15;
     return ret;
 }
 

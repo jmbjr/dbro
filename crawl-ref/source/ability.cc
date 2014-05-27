@@ -1366,6 +1366,13 @@ void no_ability_msg()
 
 bool activate_ability()
 {
+    if (you.intox())
+    {
+        canned_msg(MSG_TOO_INTOX);
+        crawl_state.zero_turns_taken();
+        return false;
+    }
+
     if (you.berserk())
     {
         canned_msg(MSG_TOO_BERSERK);
@@ -1457,6 +1464,13 @@ static bool _check_ability_possible(const ability_def& abil,
                                     bool hungerCheck = true,
                                     bool quiet = false)
 {
+    if (you.intox())
+    {
+        if (!quiet)
+            canned_msg(MSG_TOO_INTOX);
+        return false;
+    }
+
     if (you.berserk())
     {
         if (!quiet)
@@ -1713,6 +1727,13 @@ bool check_ability_possible(const ability_type ability, bool hungerCheck,
 
 bool activate_talent(const talent& tal)
 {
+    if (you.intox())
+    {
+        canned_msg(MSG_TOO_INTOX);
+        crawl_state.zero_turns_taken();
+        return false;
+    }
+
     if (you.berserk())
     {
         canned_msg(MSG_TOO_BERSERK);
